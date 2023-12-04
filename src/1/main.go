@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -22,6 +24,16 @@ func main() {
 	}
 }
 
-func getNumberFromLine(line string) uint16 {
-	return 0
+func getNumberFromLine(line string) int {
+	var result int = 0
+	var digits = "0123456789"
+	var firstIndex = strings.IndexAny(line, digits)
+	var lastInde = strings.LastIndexAny(line, digits)
+
+	var stringResult = string(line[firstIndex]) + string(line[lastInde])
+	result, err := strconv.Atoi(stringResult)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return result
 }

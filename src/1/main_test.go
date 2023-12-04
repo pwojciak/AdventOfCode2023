@@ -10,13 +10,23 @@ func Test_getNumberFromLine(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want uint16
+		want int
 	}{
-		// TODO: Add test cases.
 		{
-			name: "Test with number in line",
-			args: args{line: "The number is 123."},
-			want: 123,
+			args: args{line: "1abc2"},
+			want: 12,
+		},
+		{
+			args: args{line: "pqr3stu8vwx"},
+			want: 38,
+		},
+		{
+			args: args{line: "a1b2c3d4e5f"},
+			want: 15,
+		},
+		{
+			args: args{line: "treb7uchet"},
+			want: 77,
 		},
 	}
 
