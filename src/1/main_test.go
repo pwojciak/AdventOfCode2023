@@ -28,6 +28,25 @@ func Test_getNumberFromLine(t *testing.T) {
 			args: args{line: "treb7uchet"},
 			want: 77,
 		},
+		{
+			name: "empty",
+			args: args{line: ""},
+			want: 0,
+		},
+		{
+			name: "no digit in string",
+			args: args{line: "xxxxxxxxxxxxxxxxxxxx"},
+			want: 0,
+		},
+		{
+			args: args{line: "1"},
+			want: 11,
+		},
+		{
+			name: "all digits",
+			args: args{line: "19999999999999999999999992"},
+			want: 12,
+		},
 	}
 
 	for _, tt := range tests {

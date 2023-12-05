@@ -25,12 +25,21 @@ func main() {
 }
 
 func getNumberFromLine(line string) int {
+
+	if len([]rune(line)) < 1 {
+		return 0
+	}
+
 	var result int = 0
 	var digits = "0123456789"
 	var firstIndex = strings.IndexAny(line, digits)
-	var lastInde = strings.LastIndexAny(line, digits)
+	var lastIndex = strings.LastIndexAny(line, digits)
 
-	var stringResult = string(line[firstIndex]) + string(line[lastInde])
+	if firstIndex < 0 || lastIndex < 0 {
+		return 0
+	}
+
+	var stringResult = string(line[firstIndex]) + string(line[lastIndex])
 	result, err := strconv.Atoi(stringResult)
 	if err != nil {
 		log.Fatal(err)
