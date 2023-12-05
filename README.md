@@ -1,2 +1,5 @@
 # AdventOfCode2023
-AdventOfCode2023 in golang
+Solving puzzles from 2023.
+
+All information icluding description of the puzzles can be find here:
+https://adventofcode.com/2023/

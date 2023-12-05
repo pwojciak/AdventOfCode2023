@@ -19,9 +19,13 @@ func main() {
 
 	fileScanner := bufio.NewScanner(file)
 
+	var result = 0
 	for fileScanner.Scan() {
-		fmt.Println(fileScanner.Text())
+		//fmt.Println(fileScanner.Text())
+		result += getNumberFromLine(fileScanner.Text())
 	}
+
+	fmt.Println("Final result is ", result)
 }
 
 func getNumberFromLine(line string) int {
